@@ -1,5 +1,5 @@
 {
     "dependencies": [
-        "require-run: ./client.es6"
+        "require-run: ./client"
     ]
 }
