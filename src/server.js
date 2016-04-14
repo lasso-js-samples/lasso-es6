@@ -1,19 +1,16 @@
+'use strict';
+
 require('marko/node-require').install();
 
 let express = require('express');
 let template = require('./template.marko');
 
 require('lasso').configure({
-    plugins: [
-        {
-            plugin: 'lasso-require',
-            config: {
-                babel: {
-                    extensions: ['es6', 'js']
-                }
-            }
+    require: {
+        babel: {
+            extensions: ['es6', 'js']
         }
-    ]
+    }
 });
 
 let app = express();
