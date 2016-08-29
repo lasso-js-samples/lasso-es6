@@ -1,10 +1,10 @@
 import { ok } from 'assert';
 
 class Polygon {
-  constructor(height, width) {
-    this.height = height;
-    this.width = width;
-  }
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
 }
 
 export default function() {

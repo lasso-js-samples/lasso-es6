@@ -1,16 +1,28 @@
 'use strict';
 
 require('marko/node-require').install();
+require('marko/express');
 
 let express = require('express');
 let template = require('./template.marko');
 
 require('lasso').configure({
     require: {
-        babel: {
-            extensions: ['es6', 'js']
-        }
-    }
+        transforms: [
+            {
+                transform: "lasso-babel-transform",
+                config: {
+                    extensions: [
+                        ".js",
+                        ".es6"
+                    ]
+                }
+            }
+        ]
+    },
+    bundlingEnabled: false,
+    fingerprintsEnabled: false,
+    minify: false
 });
 
 let app = express();
@@ -18,9 +30,7 @@ let app = express();
 app.use(require('lasso/middleware').serveStatic());
 
 app.get('/', function(req, res) {
-    template.render({
-
-    }, res);
+    res.marko(template, {});
 });
 
 app.listen(8080, function(err) {

@@ -14,9 +14,12 @@
   },
   "dependencies": {
     "babel-core": "^6.7.6",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-3": "^6.11.0",
     "babel-runtime": "^6.6.1",
     "express": "^4.13.4",
     "lasso": "^2.2.1",
-    "marko": "^3.1.2"
+    "lasso-babel-transform": "^0.4.0",
+    "marko": "^3.10.0"
   }
 }
