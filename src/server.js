@@ -1,12 +1,11 @@
 'use strict';
 
-require('marko/node-require').install();
-require('marko/express');
+import express from 'express';
+import template from './template.marko';
+import lasso from 'lasso';
+import lassoMiddleware from 'lasso/middleware';
 
-let express = require('express');
-let template = require('./template.marko');
-
-require('lasso').configure({
+lasso.configure({
     require: {
         transforms: [
             {
@@ -27,7 +26,7 @@ require('lasso').configure({
 
 let app = express();
 
-app.use(require('lasso/middleware').serveStatic());
+app.use(lassoMiddleware.serveStatic());
 
 app.get('/', function(req, res) {
     res.marko(template, {});
